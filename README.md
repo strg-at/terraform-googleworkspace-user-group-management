@@ -56,6 +56,18 @@ role:
   name: 'Example Role'
 ```
 
+##### Groups in Group example structure
+Group member have to be defined within the group definition.
+```yaml
+role:
+  email: 'role@example.io'
+  name: 'Example Role'
+  groups:
+    - alt_role
+```
+In this example the group 'alt_role' will be a member of the group 'role'.
+
+
 #### **Users example structure**
 ```yaml
 jane:
