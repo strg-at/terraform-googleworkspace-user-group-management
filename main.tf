@@ -25,6 +25,17 @@ module "groups" {
   group = each.value
 }
 
+module "groups_in_group" {
+  for_each = var.groups
+  depends_on = [module.groups]
+  source   = "./groups_in_group"
+  providers = {
+    gsuite = gsuite
+  }
+  groups = var.groups
+  group = each.value
+}
+
 module "users" {
   for_each   = var.users
   depends_on = [module.groups]
