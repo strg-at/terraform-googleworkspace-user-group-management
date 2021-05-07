@@ -26,14 +26,14 @@ module "groups" {
 }
 
 module "groups_in_group" {
-  for_each = var.groups
+  for_each   = var.groups
   depends_on = [module.groups]
-  source   = "./groups_in_group"
+  source     = "./groups_in_group"
   providers = {
     gsuite = gsuite
   }
   groups = var.groups
-  group = each.value
+  group  = each.value
 }
 
 module "users" {

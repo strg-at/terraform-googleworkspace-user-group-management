@@ -22,7 +22,7 @@ variable "group" {
  */
 
 resource "gsuite_group_member" "member" {
-  for_each   = toset(var.group.groups)
-  group      = var.group.email
-  email      = var.groups[each.value].email
+  for_each = toset(var.group.groups)
+  group    = var.group.email
+  email    = var.groups[each.value].email
 }
