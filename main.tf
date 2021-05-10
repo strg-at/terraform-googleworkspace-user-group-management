@@ -34,7 +34,7 @@ module "users" {
   providers = {
     gsuite = gsuite
   }
-  user   = each.value
+  user = each.value
 }
 
 module "users_to_groups" {

@@ -11,7 +11,7 @@ terraform {
  * Ressource documentation: https://registry.terraform.io/providers/DeviaVir/gsuite/latest/docs/resources/group_member
  */
 resource "gsuite_group_member" "member" {
-  for_each   = toset(var.user.roles)
-  group      = var.groups[each.value].email
-  email      = var.user.primary_email
+  for_each = toset(var.user.roles)
+  group    = var.groups[each.value].email
+  email    = var.user.primary_email
 }
