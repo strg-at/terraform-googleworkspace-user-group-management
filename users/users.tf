@@ -7,15 +7,6 @@ terraform {
   }
 }
 
-variable "groups" {
-  type        = map(any)
-  description = "contains objects representing all defined Google Groups"
-}
-variable "user" {
-  type        = any
-  description = "contains an object representing a Google User"
-}
-
 /**
  * Ressource documentation: https://registry.terraform.io/providers/DeviaVir/gsuite/latest/docs/resources/user
  */
@@ -33,12 +24,4 @@ resource "gsuite_user" "user" {
   update_existing   = true # If omitted or `true` existing GSuite users defined as Terraform resources will be imported by `terraform apply`.
 }
 
-/**
- * Ressource documentation: https://registry.terraform.io/providers/DeviaVir/gsuite/latest/docs/resources/group_member
- */
-resource "gsuite_group_member" "member" {
-  depends_on = [gsuite_user.user]
-  for_each   = toset(var.user.roles)
-  group      = var.groups[each.value].email
-  email      = var.user.primary_email
-}
+
