@@ -12,5 +12,5 @@ jane:
   is_suspended: false
   suspension_reason: ''
   role:
-    - group
+    - one-group
     - another-group
