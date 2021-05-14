@@ -22,7 +22,7 @@ This module uses [Semantic Versioning](http://semver.org/).
 
 ## Licence
 
-This code is released under the MIT Licence. Please see [LICENCE](LICENCE) for more details.
+This code is released under the MIT Licence. Please see [LICENSE](LICENSE) for more details.
 
 ## Authors
 
