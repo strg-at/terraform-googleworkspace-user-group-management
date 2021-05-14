@@ -20,7 +20,7 @@ Contributions are very welcome! Please create a Pull Request.
 
 This module uses [Semantic Versioning](http://semver.org/).
 
-## Licence
+## License
 
 This code is released under the MIT License. Please see [LICENSE](LICENSE) for more details.
 
