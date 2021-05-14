@@ -7,18 +7,9 @@ terraform {
   }
 }
 
-variable "groups" {
-  type        = map(any)
-  description = "contains objects representing all defined Google Groups"
-}
-variable "users" {
-  type        = map(any)
-  description = "contains objects representing all defined Google Users"
-}
-
 module "groups" {
   for_each = var.groups
-  source   = "./groups"
+  source   = "./modules/groups"
   providers = {
     gsuite = gsuite
   }
@@ -28,7 +19,7 @@ module "groups" {
 module "groups_in_group" {
   for_each   = var.groups
   depends_on = [module.groups]
-  source     = "./groups_in_group"
+  source     = "./modules/groups_in_group"
   providers = {
     gsuite = gsuite
   }
@@ -39,7 +30,17 @@ module "groups_in_group" {
 module "users" {
   for_each   = var.users
   depends_on = [module.groups]
-  source     = "./users"
+  source     = "./modules/users"
+  providers = {
+    gsuite = gsuite
+  }
+  user = each.value
+}
+
+module "users_to_groups" {
+  for_each   = var.users
+  depends_on = [module.users]
+  source     = "./modules/users_to_groups"
   providers = {
     gsuite = gsuite
   }
