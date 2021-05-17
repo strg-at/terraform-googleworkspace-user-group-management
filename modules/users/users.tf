@@ -16,12 +16,16 @@ resource "gsuite_user" "user" {
     given_name  = var.user.given_name
   }
   primary_email     = var.user.primary_email
-  recovery_email    = var.user.recovery_email
-  recovery_phone    = var.user.recovery_phone
   org_unit_path     = var.user.org_unit_path
   is_suspended      = var.user.is_suspended
   suspension_reason = var.user.suspension_reason
   update_existing   = true # If omitted or `true` existing GSuite users defined as Terraform resources will be imported by `terraform apply`.
+  lifecycle {
+    ignore_changes = [
+      recovery_email,
+      recovery_phone
+    ]
+  }
 }
 
 

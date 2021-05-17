@@ -10,7 +10,6 @@ terraform {
 /**
  * Ressource documentation: https://registry.terraform.io/providers/DeviaVir/gsuite/latest/docs/resources/group
  */
-
 resource "gsuite_group_member" "member" {
   for_each = toset(var.group.groups)
   group    = var.group.email
