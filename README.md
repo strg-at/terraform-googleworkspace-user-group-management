@@ -1,6 +1,5 @@
 # Dynamic User- and Group Management for Google Workspace with Terraform
-ISAS Implementation for User- and Group Management in Google Workspace (formerly GSuite)
-
+IAC Implementation for User- and Group Management in Google Workspace (formerly GSuite)
 
 ## How to use this module
 
