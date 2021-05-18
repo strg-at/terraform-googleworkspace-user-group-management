@@ -1,6 +1,5 @@
 # Dynamic User- and Group Management for Google Workspace with Terraform
-ISAS Implementation for User- and Group Management in Google Workspace (formerly GSuite)
-
+IAC Implementation for User- and Group Management in Google Workspace (formerly GSuite)
 
 ## How to use this module
 
@@ -20,9 +19,9 @@ Contributions are very welcome! Please create a Pull Request.
 
 This module uses [Semantic Versioning](http://semver.org/).
 
-## Licence
+## License
 
-This code is released under the MIT Licence. Please see [LICENSE](LICENSE) for more details.
+This code is released under the MIT License. Please see [LICENSE](LICENSE) for more details.
 
 ## Authors
 
