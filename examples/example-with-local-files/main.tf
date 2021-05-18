@@ -32,7 +32,7 @@ locals {
 
 # ---------------------------------------------------------------------------------------------------------------------
 # GOOGLE WORKSPACE USER-GROUP MANAGEMENT MODULE
-# The module expects groups and users data.
+# The module expects groups and users. users_external is optional.
 # ---------------------------------------------------------------------------------------------------------------------
 
 module "user-group-management" {

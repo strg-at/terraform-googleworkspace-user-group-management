@@ -10,5 +10,6 @@ variable "users" {
 
 variable "users_external" {
   type        = map(any)
+  default     = {}
   description = "contains objects representing all defined external Users"
 }

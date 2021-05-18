@@ -1,10 +1,10 @@
 variable "user_external" {
-  type        = any
+  type        = map(any)
   description = "contains an object representing an external User"
 }
 
 variable "user_external_email" {
-  type        = any
+  type        = string
   description = "contains the external User email"
 }
 
