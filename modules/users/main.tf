@@ -7,9 +7,10 @@ terraform {
   }
 }
 
-/**
- * Ressource documentation: https://registry.terraform.io/providers/DeviaVir/gsuite/latest/docs/resources/user
- */
+# ---------------------------------------------------------------------------------------------------------------------
+# Ressource documentation: https://registry.terraform.io/providers/DeviaVir/gsuite/latest/docs/resources/user
+# ---------------------------------------------------------------------------------------------------------------------
+
 resource "gsuite_user" "user" {
   name = {
     family_name = var.user.family_name
