@@ -37,6 +37,18 @@ module "users" {
   user = each.value
 }
 
+module "users_external_to_groups" {
+  for_each   = var.users_external
+  depends_on = [module.groups]
+  source     = "./modules/users_external_to_groups"
+  providers = {
+    gsuite = gsuite
+  }
+  groups              = var.groups
+  user_external       = each.value
+  user_external_email = each.key
+}
+
 module "users_to_groups" {
   for_each   = var.users
   depends_on = [module.users]
