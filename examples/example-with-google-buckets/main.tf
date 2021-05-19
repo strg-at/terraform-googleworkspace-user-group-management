@@ -38,9 +38,14 @@ data "google_storage_bucket_object_content" "users" {
   bucket = "example-data"
 }
 
+data "google_storage_bucket_object_content" "users_external" {
+  name   = "users_external.yaml"
+  bucket = "example-data"
+}
+
 # ---------------------------------------------------------------------------------------------------------------------
 # GOOGLE WORKSPACE USER-GROUP MANAGEMENT MODULE
-# The module expects groups and users data.
+# The module expects groups and users. users_external is optional.
 # ---------------------------------------------------------------------------------------------------------------------
 
 module "user-group-management" {
@@ -49,6 +54,7 @@ module "user-group-management" {
   providers = {
     gsuite = gsuite
   }
-  groups = yamldecode(data.google_storage_bucket_object_content.groups.content)
-  users  = yamldecode(data.google_storage_bucket_object_content.users.content)
+  groups         = yamldecode(data.google_storage_bucket_object_content.groups.content)
+  users          = yamldecode(data.google_storage_bucket_object_content.users.content)
+  users_external = yamldecode(data.google_storage_bucket_object_content.users_external.content)
 }

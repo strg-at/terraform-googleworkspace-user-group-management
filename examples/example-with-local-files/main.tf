@@ -25,13 +25,14 @@ terraform {
 # ---------------------------------------------------------------------------------------------------------------------
 
 locals {
-  groups = yamldecode(file("${path.module}/groups.yaml"))
-  users  = yamldecode(file("${path.module}/users.yaml"))
+  groups         = yamldecode(file("${path.module}/groups.yaml"))
+  users          = yamldecode(file("${path.module}/users.yaml"))
+  users_external = yamldecode(file("${path.module}/users_external.yaml"))
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
 # GOOGLE WORKSPACE USER-GROUP MANAGEMENT MODULE
-# The module expects groups and users data.
+# The module expects groups and users. users_external is optional.
 # ---------------------------------------------------------------------------------------------------------------------
 
 module "user-group-management" {
@@ -40,6 +41,7 @@ module "user-group-management" {
   providers = {
     gsuite = gsuite
   }
-  groups = local.groups
-  users  = local.users
+  groups         = local.groups
+  users          = local.users
+  users_external = local.users_external
 }
