@@ -6,11 +6,11 @@ jane:
   family_name: 'Doe'
   given_name: 'Jane'
   primary_email: 'jane@example.io'
-  recovery_email: 'jane@alternative-example.io'
-  recovery_phone: '+10000'
   org_unit_path: /
   is_suspended: false
   suspension_reason: ''
+  aliases:
+    - doe@example.io
   role:
     - one-group
     - another-group
