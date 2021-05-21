@@ -5,6 +5,9 @@
 one-group:
   email: 'group@example.io'
   name: 'Example group'
+  aliases:
+    - 'one-alternative@example.io'
+  groups: []
 
 # ---------------------------------------------------------------------------------------------------------------------
 # GOOGLE GROUP WITH ANOTHER GROUP AS MEMBER
@@ -13,5 +16,6 @@ one-group:
 another-group:
   email: 'another-group@example.io'
   name: 'Another Example group'
+  aliases: []
   groups:
-    - one-group
+    - 'one-group'
