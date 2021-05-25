@@ -26,6 +26,7 @@ terraform {
 
 locals {
   groups         = yamldecode(file("${path.module}/groups.yaml"))
+  group_settings = yamldecode(file("${path.module}/group-settings.yaml"))
   users          = yamldecode(file("${path.module}/users.yaml"))
   users_external = yamldecode(file("${path.module}/users_external.yaml"))
 }
@@ -42,6 +43,7 @@ module "user-group-management" {
     gsuite = gsuite
   }
   groups         = local.groups
+  group_settings = local.group_settings
   users          = local.users
   users_external = local.users_external
 }
