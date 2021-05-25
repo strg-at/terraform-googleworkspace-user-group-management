@@ -1,0 +1,34 @@
+# ---------------------------------------------------------------------------------------------------------------------
+# GOOGLE GROUP SETTINGS
+# ---------------------------------------------------------------------------------------------------------------------
+#
+# For details on allowed parameters check https://registry.terraform.io/providers/DeviaVir/gsuite/latest/docs/resources/group_settings
+
+anyone-mail-allowed:
+  allow_external_members: "true"
+  allow_web_posting: "false"
+  archive_only: "false"
+  include_in_global_address_list: "true"
+  spam_moderation_level: "ALLOW"
+  who_can_contact_owner: "ALL_MANAGERS_CAN_CONTACT"
+  who_can_discover_group: "ALL_IN_DOMAIN_CAN_DISCOVER"
+  who_can_join: "INVITED_CAN_JOIN"
+  who_can_leave_group: "NONE_CAN_LEAVE"
+  who_can_post_message: "ANYONE_CAN_POST"
+  who_can_view_group: "ALL_MEMBERS_CAN_VIEW"
+  who_can_view_membership: "ALL_IN_DOMAIN_CAN_VIEW"
+
+# default
+default:
+  allow_external_members: null
+  allow_web_posting: null
+  archive_only: null
+  include_in_global_address_list: null
+  spam_moderation_level: null
+  who_can_contact_owner: null
+  who_can_discover_group: null
+  who_can_join: null
+  who_can_leave_group: null
+  who_can_post_message: null
+  who_can_view_group: null
+  who_can_view_membership: null

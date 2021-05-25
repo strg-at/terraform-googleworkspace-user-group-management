@@ -4,7 +4,7 @@ IAC Implementation for User- and Group Management in Google Workspace (formerly 
 ## How to use this module
 
 This repo has the following folder structure:
-* [modules](modules/): This folder contains a set of modules for maintaining Users and Groups in Google Workspace. The modules are basically standalone, however a proper data source is needed.
+* [modules](modules/): This folder contains a set of modules for maintaining Users and Groups in Google Workspace.
 * [examples](examples/): This folder shows examples on how to use this module with different data sources as well as an example for a data source and authentication with the Google API.
 
 ### Google Cloud Service account

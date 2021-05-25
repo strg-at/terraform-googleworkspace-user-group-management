@@ -16,6 +16,16 @@ module "groups" {
   group = each.value
 }
 
+module "group_settings" {
+  for_each = var.groups
+  source   = "./modules/group_settings"
+  providers = {
+    gsuite = gsuite
+  }
+  group_settings = var.group_settings
+  group          = each.value
+}
+
 module "groups_in_group" {
   for_each   = var.groups
   depends_on = [module.groups]

@@ -33,6 +33,11 @@ data "google_storage_bucket_object_content" "groups" {
   bucket = "example-data"
 }
 
+data "google_storage_bucket_object_content" "group_settings" {
+  name   = "group_settings.yaml"
+  bucket = "example-data"
+}
+
 data "google_storage_bucket_object_content" "users" {
   name   = "users.yaml"
   bucket = "example-data"
@@ -55,6 +60,7 @@ module "user-group-management" {
     gsuite = gsuite
   }
   groups         = yamldecode(data.google_storage_bucket_object_content.groups.content)
+  group_settings = yamldecode(data.google_storage_bucket_object_content.group_settings.content)
   users          = yamldecode(data.google_storage_bucket_object_content.users.content)
   users_external = yamldecode(data.google_storage_bucket_object_content.users_external.content)
 }
