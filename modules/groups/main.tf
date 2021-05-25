@@ -15,9 +15,4 @@ resource "gsuite_group" "group" {
   email   = var.group.email
   name    = var.group.name
   aliases = var.group.aliases
-  lifecycle {
-    ignore_changes = [
-      description
-    ]
-  }
 }
