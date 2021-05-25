@@ -16,7 +16,7 @@ module "groups" {
   group = each.value
 }
 
-module "group_settings" {
+/**module "group_settings" {
   for_each = var.groups
   source   = "./modules/group_settings"
   providers = {
@@ -24,7 +24,7 @@ module "group_settings" {
   }
   group_settings = var.group_settings
   group          = each.value
-}
+}**/
 
 module "groups_in_group" {
   for_each   = var.groups
