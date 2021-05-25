@@ -16,13 +16,13 @@ resource "gsuite_user" "user" {
     family_name = var.user.family_name
     given_name  = var.user.given_name
   }
-  primary_email     = var.user.primary_email
-  org_unit_path     = var.user.org_unit_path
-  is_suspended      = var.user.is_suspended
-  suspension_reason = var.user.suspension_reason
-  aliases           = var.user.aliases
+  primary_email          = var.user.primary_email
+  org_unit_path          = var.user.org_unit_path
+  is_suspended           = var.user.is_suspended
+  suspension_reason      = var.user.suspension_reason
+  aliases                = var.user.aliases
+  include_in_global_list = var.user.include_in_global_list
 
-  update_existing = true # If omitted or `true` existing GSuite users defined as Terraform resources will be imported by `terraform apply`.
   lifecycle {
     ignore_changes = [
       recovery_email,
@@ -30,5 +30,3 @@ resource "gsuite_user" "user" {
     ]
   }
 }
-
-
