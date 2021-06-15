@@ -26,7 +26,8 @@ resource "gsuite_user" "user" {
   lifecycle {
     ignore_changes = [
       recovery_email,
-      recovery_phone
+      recovery_phone,
     ]
+    prevent_destroy = true
   }
 }
