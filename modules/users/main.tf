@@ -25,10 +25,8 @@ resource "gsuite_user" "user" {
 
   lifecycle {
     ignore_changes = [
-      etag,
       recovery_email,
-      recovery_phone,
-      last_login_time
+      recovery_phone
     ]
   }
 }
