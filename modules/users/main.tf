@@ -28,5 +28,6 @@ resource "gsuite_user" "user" {
       recovery_email,
       recovery_phone
     ]
+    prevent_destroy = true
   }
 }
