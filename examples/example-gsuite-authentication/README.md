@@ -9,19 +9,11 @@ Go to [IAM service accounts](https://console.developers.google.com/iam-admin/ser
 * add yourself to 'Grant users access to this service account'
 
 ### Add key
-In the Service account overview open the 'Actions' menu on the right of the dedicated service account and choose **Manage keys**.
-Click on 'Add key' and create a new key in JSON format, this key will be used for Terraform.
+In the Service account overview open the 'Actions' menu on the right of the dedicated service account and choose **Manage keys**. Click on 'Add key' and create a new key in JSON format, this key will be used for Terraform.
+Go back to Details and copy the Unique ID.
 
-### Add domain-wide delegation for GSuite
-In the Service account overview open the 'Actions' menu on the right of the dedicated service account and choose **Manage details**.
-
-Open this part below and **Enable GSuite Domain-wide Delegation**.
-* Enter Product name, f.e. Terraform GSuite service
-* the impersonated user account will do the terraform job and needs admin permission.
-* copy ID for next step
-
-### Grant Google Workspace admin permissions
-Now go to [Google Admin Console](https://admin.google.com) and open the Burger menu on the left. Choose **Security** > **API controls**.
+### Add service account to domain-wide delegation for GWorkspace
+Go to [Google Admin console Domain wide delegation](https://admin.google.com/ac/owl/domainwidedelegation).
 
 Get the Service account with the ID provided before (Service account details), then add the following oauth scopes:
 ```
