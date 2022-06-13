@@ -1,0 +1,7 @@
+# -------------------------------------------------------------------------------------------
+# Gworkspace credentials
+# -------------------------------------------------------------------------------------------
+
+#gworkspace_customer_id = "AB007cdef"
+#gworkspace_email       = "jane@example.io"
+#gworkspace_credentials = "/path/to/google_credentials.json"

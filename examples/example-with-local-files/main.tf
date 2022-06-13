@@ -6,16 +6,16 @@
 
 terraform {
   required_providers {
-    gsuite = {
-      source  = "DeviaVir/gsuite"
-      version = "0.1.58"
+    googleworkspace = {
+      source  = "hashicorp/googleworkspace"
+      version = ""
     }
   }
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
-# ADD CREDENTIALS FOR GSUITE PROVIDER
-# See example-gsuite-authentication
+# ADD CREDENTIALS FOR PROVIDER AUTHENTICATION
+# See example-provider-authentication
 # ---------------------------------------------------------------------------------------------------------------------
 
 
@@ -37,10 +37,10 @@ locals {
 # ---------------------------------------------------------------------------------------------------------------------
 
 module "user-group-management" {
-  source  = "strg-at/user-group-management/gsuite"
-  version = "0.1.0"
+  source  = "strg-at/user-group-management/googleworkspace"
+  version = ""
   providers = {
-    gsuite = gsuite
+    googleworkspace = googleworkspace
   }
   groups         = local.groups
   group_settings = local.group_settings

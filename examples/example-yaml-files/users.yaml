@@ -3,15 +3,15 @@
 # ---------------------------------------------------------------------------------------------------------------------
 
 jane:
-  primary_email: 'jane@example.io'
-  include_in_global_list: true
-  given_name: 'Jane'
-  family_name: 'Doe'
-  is_suspended: false
-  suspension_reason: ''
-  org_unit_path: '/'
+  primary_email: "jane@example.io"
+  family_name: "Doe"
+  given_name: "Jane"
   aliases:
-    - 'doe@example.io'
-  role:
-    - 'one-group'
-    - 'another-group'
+  - "doe@example.io"
+  include_in_global_address_list: true
+  org_unit_path: "/"
+  archived: false
+  suspended: false
+  roles:
+    - "one-group"
+    - "another-group"
