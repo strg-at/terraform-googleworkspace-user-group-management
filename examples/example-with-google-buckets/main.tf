@@ -55,7 +55,7 @@ data "google_storage_bucket_object_content" "users_external" {
 
 module "user-group-management" {
   source  = "strg-at/user-group-management/gsuite"
-  version = "0.1.0"
+  version = "0.3.0"
   providers = {
     gsuite = gsuite
   }
