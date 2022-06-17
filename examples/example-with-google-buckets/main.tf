@@ -7,7 +7,7 @@ terraform {
   required_providers {
     gsuite = {
       source  = "DeviaVir/gsuite"
-      version = "0.1.58"
+      version = "0.1.62"
     }
     google = {
       source  = "hashicorp/google"
