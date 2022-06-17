@@ -19,7 +19,7 @@ terraform {
 
 # ---------------------------------------------------------------------------------------------------------------------
 # ADD CREDENTIALS FOR PROVIDER AUTHENTICATION
-# See example-provider-authentication
+# See example-provider-authentication-with-tfvars
 # ---------------------------------------------------------------------------------------------------------------------
 
 
