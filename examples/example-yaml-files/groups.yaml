@@ -3,11 +3,11 @@
 # ---------------------------------------------------------------------------------------------------------------------
 
 one-group:
-  email: "group@example.io"
-  name: "Example group"
-  settings: "anyone-mail-allowed"
+  email: group@example.io
+  name: Example group
+  settings: anyone-mail-allowed
   aliases:
-    - "one-alternative@example.io"
+    - one-alternative@example.io
   groups: []
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -15,9 +15,9 @@ one-group:
 # ---------------------------------------------------------------------------------------------------------------------
 
 another-group:
-  email: "another-group@example.io"
-  name: "Another Example group"
-  settings: "default"
+  email: another-group@example.io
+  name: Another Example group
+  settings: default
   aliases: []
   groups:
-    - "one-group"
+    - one-group

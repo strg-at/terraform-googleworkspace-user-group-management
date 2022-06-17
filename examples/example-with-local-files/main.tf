@@ -8,14 +8,14 @@ terraform {
   required_providers {
     googleworkspace = {
       source  = "hashicorp/googleworkspace"
-      version = ""
+      version = "0.7.0"
     }
   }
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
 # ADD CREDENTIALS FOR PROVIDER AUTHENTICATION
-# See example-provider-authentication
+# See example-provider-authentication-with-tfvars
 # ---------------------------------------------------------------------------------------------------------------------
 
 
@@ -38,7 +38,7 @@ locals {
 
 module "user-group-management" {
   source  = "strg-at/user-group-management/googleworkspace"
-  version = ""
+  version = "0.1.0"
   providers = {
     googleworkspace = googleworkspace
   }

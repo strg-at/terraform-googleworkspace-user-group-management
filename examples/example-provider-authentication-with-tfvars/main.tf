@@ -7,7 +7,7 @@ terraform {
   required_providers {
     googleworkspace = {
       source  = "hashicorp/googleworkspace"
-      version = ""
+      version = "0.7.0"
     }
   }
 }

@@ -1,8 +1,6 @@
 # ---------------------------------------------------------------------------------------------------------------------
 # GOOGLE GROUP SETTINGS
 # ---------------------------------------------------------------------------------------------------------------------
-#
-# For details on allowed parameters check https://registry.terraform.io/providers/DeviaVir/gsuite/latest/docs/resources/group_settings
 
 anyone-mail-allowed:
   allow_external_members: false
@@ -12,19 +10,19 @@ anyone-mail-allowed:
   include_in_global_address_list: true
   is_archived: false
   members_can_post_as_the_group: false
-  message_moderation_level: "MODERATE_NONE"
-  reply_to: "REPLY_TO_IGNORE"
-  spam_moderation_level: "MODERATE"
-  who_can_assist_content: "NONE"
-  who_can_contact_owner: "ANYONE_CAN_CONTACT"
-  who_can_discover_group: "ALL_IN_DOMAIN_CAN_DISCOVER"
-  who_can_join: "CAN_REQUEST_TO_JOIN"
-  who_can_leave_group: "ALL_MEMBERS_CAN_LEAVE"
-  who_can_moderate_content: "OWNERS_AND_MANAGERS"
-  who_can_moderate_members: "OWNERS_AND_MANAGERS"
-  who_can_post_message: "ANYONE_CAN_POST"
-  who_can_view_group: "ALL_MEMBERS_CAN_VIEW"
-  who_can_view_membership: "ALL_MEMBERS_CAN_VIEW"
+  message_moderation_level: MODERATE_NONE
+  reply_to: REPLY_TO_IGNORE
+  spam_moderation_level: MODERATE
+  who_can_assist_content: NONE
+  who_can_contact_owner: ANYONE_CAN_CONTACT
+  who_can_discover_group: ALL_IN_DOMAIN_CAN_DISCOVER
+  who_can_join: CAN_REQUEST_TO_JOIN
+  who_can_leave_group: ALL_MEMBERS_CAN_LEAVE
+  who_can_moderate_content: OWNERS_AND_MANAGERS
+  who_can_moderate_members: OWNERS_AND_MANAGERS
+  who_can_post_message: ANYONE_CAN_POST
+  who_can_view_group: ALL_MEMBERS_CAN_VIEW
+  who_can_view_membership: ALL_MEMBERS_CAN_VIEW
 
 # default
 # set values to null
