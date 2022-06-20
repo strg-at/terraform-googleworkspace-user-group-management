@@ -4,4 +4,4 @@
 
 jane@example-external.io:
   roles:
-    - 'one-group'
+    - one-group

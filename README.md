@@ -9,7 +9,7 @@ This repo has the following folder structure:
 
 ### Google Cloud Service account
 
-To maintain the Google Workspace ressources a Service account is needed. See [example-gsuite-authentication](examples/example-gsuite-authentication) on how to provide credentials to Terraform.
+To maintain the Google Workspace ressources a Service account is needed. See [example-provider-authentication](examples/example-provider-authentication) on how to provide credentials to Terraform.
 
 ## How do I contribute to this module?
 

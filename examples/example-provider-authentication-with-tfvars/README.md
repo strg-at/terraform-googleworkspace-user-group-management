@@ -1,4 +1,4 @@
-# Example GSuite Authentication
+# Example Provider Authentication
 This folder contains an example how to implement the GSuite Authentication for Terraform.
 ## Google Cloud Service account
 ### Setup Service Account
@@ -20,6 +20,7 @@ Get the Service account with the ID provided before (Service account details), t
 https://www.googleapis.com/auth/admin.directory.user, https://www.googleapis.com/auth/admin.directory.userschema, https://www.googleapis.com/auth/admin.directory.group, https://www.googleapis.com/auth/apps.groups.settings
 ```
 
-### Provide Service account credentials to Terraform
+### Provide Service account credentials to Terraform Provider
 
 Add credentials to terraform.tfvars, see [terraform.tfvars.example](terraform.tfvars.example).
+For Googleworkspace Customer ID, see [Find your customer ID](https://support.google.com/a/answer/10070793?hl=en).

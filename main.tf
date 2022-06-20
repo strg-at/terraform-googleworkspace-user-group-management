@@ -1,8 +1,8 @@
 terraform {
   required_providers {
-    gsuite = {
-      source  = "DeviaVir/gsuite"
-      version = "0.1.58"
+    googleworkspace = {
+      source  = "hashicorp/googleworkspace"
+      version = "0.7.0"
     }
   }
 }
@@ -11,17 +11,17 @@ module "groups" {
   for_each = var.groups
   source   = "./modules/groups"
   providers = {
-    gsuite = gsuite
+    googleworkspace = googleworkspace
   }
   group = each.value
 }
 
 module "group_settings" {
-  for_each = var.groups
+  for_each   = var.groups
   depends_on = [module.groups]
-  source   = "./modules/group_settings"
+  source     = "./modules/group_settings"
   providers = {
-    gsuite = gsuite
+    googleworkspace = googleworkspace
   }
   group_settings = var.group_settings
   group          = each.value
@@ -32,7 +32,7 @@ module "groups_in_group" {
   depends_on = [module.groups]
   source     = "./modules/groups_in_group"
   providers = {
-    gsuite = gsuite
+    googleworkspace = googleworkspace
   }
   groups = var.groups
   group  = each.value
@@ -43,7 +43,7 @@ module "users" {
   depends_on = [module.groups]
   source     = "./modules/users"
   providers = {
-    gsuite = gsuite
+    googleworkspace = googleworkspace
   }
   user = each.value
 }
@@ -53,7 +53,7 @@ module "users_external_to_groups" {
   depends_on = [module.groups]
   source     = "./modules/users_external_to_groups"
   providers = {
-    gsuite = gsuite
+    googleworkspace = googleworkspace
   }
   groups              = var.groups
   user_external       = each.value
@@ -65,7 +65,7 @@ module "users_to_groups" {
   depends_on = [module.users]
   source     = "./modules/users_to_groups"
   providers = {
-    gsuite = gsuite
+    googleworkspace = googleworkspace
   }
   groups = var.groups
   user   = each.value

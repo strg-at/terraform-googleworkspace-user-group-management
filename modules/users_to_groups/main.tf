@@ -1,18 +1,18 @@
 terraform {
   required_providers {
-    gsuite = {
-      source  = "DeviaVir/gsuite"
-      version = "0.1.58"
+    googleworkspace = {
+      source  = "hashicorp/googleworkspace"
+      version = "0.7.0"
     }
   }
 }
 
-# ---------------------------------------------------------------------------------------------------------------------
-# Ressource documentation: https://registry.terraform.io/providers/DeviaVir/gsuite/latest/docs/resources/group_member
-# ---------------------------------------------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------------------------------------------------
+# Ressource documentation: https://registry.terraform.io/providers/hashicorp/googleworkspace/latest/docs/resources/group_member
+# -----------------------------------------------------------------------------------------------------------------------------
 
-resource "gsuite_group_member" "group" {
+resource "googleworkspace_group_member" "group" {
   for_each = toset(var.user.roles)
-  group    = var.groups[each.value].email
+  group_id = var.groups[each.value].email
   email    = var.user.primary_email
 }

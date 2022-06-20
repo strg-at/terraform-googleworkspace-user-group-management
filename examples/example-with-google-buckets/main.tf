@@ -1,3 +1,4 @@
+# ---------------------------------------------------------------------------------------------------------------------
 # MANAGE USERS AND GROUPS IN GOOGLE WORKSPACE
 # These templates show an example of how to use the terraform-gsuite-user-group-management module to manage Users and
 # Groups in Google Workspace. Google Buckets are used as data source.
@@ -5,20 +6,20 @@
 
 terraform {
   required_providers {
-    gsuite = {
-      source  = "DeviaVir/gsuite"
-      version = "0.1.58"
+    googleworkspace = {
+      source  = "hashicorp/googleworkspace"
+      version = "0.7.0"
     }
     google = {
       source  = "hashicorp/google"
-      version = "3.66.1"
+      version = "4.25.0"
     }
   }
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
-# ADD CREDENTIALS FOR GSUITE PROVIDER
-# See example-gsuite-authentication
+# ADD CREDENTIALS FOR PROVIDER AUTHENTICATION
+# See example-provider-authentication-with-tfvars
 # ---------------------------------------------------------------------------------------------------------------------
 
 
@@ -54,10 +55,10 @@ data "google_storage_bucket_object_content" "users_external" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 module "user-group-management" {
-  source  = "strg-at/user-group-management/gsuite"
+  source  = "strg-at/user-group-management/googleworkspace"
   version = "0.1.0"
   providers = {
-    gsuite = gsuite
+    googleworkspace = googleworkspace
   }
   groups         = yamldecode(data.google_storage_bucket_object_content.groups.content)
   group_settings = yamldecode(data.google_storage_bucket_object_content.group_settings.content)

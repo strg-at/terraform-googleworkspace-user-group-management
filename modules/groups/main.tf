@@ -1,18 +1,19 @@
 terraform {
   required_providers {
-    gsuite = {
-      source  = "DeviaVir/gsuite"
-      version = "0.1.58"
+    googleworkspace = {
+      source  = "hashicorp/googleworkspace"
+      version = "0.7.0"
     }
   }
 }
 
-# ---------------------------------------------------------------------------------------------------------------------
-# Ressource documentation: https://registry.terraform.io/providers/DeviaVir/gsuite/latest/docs/resources/group
-# ---------------------------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------
+# Ressource documentation: https://registry.terraform.io/providers/hashicorp/googleworkspace/latest/docs/resources/group
+# ----------------------------------------------------------------------------------------------------------------------
 
-resource "gsuite_group" "group" {
-  email   = var.group.email
-  name    = var.group.name
-  aliases = var.group.aliases
+resource "googleworkspace_group" "group" {
+  email       = var.group.email
+  name        = var.group.name
+  description = "Managed with Terraform"
+  aliases     = var.group.aliases
 }

@@ -1,11 +1,21 @@
 # ---------------------------------------------------------------------------------------------------------------------
-# PROVIDE CREDENTIALS TO GSUITE PROVIDER
+# PROVIDE CREDENTIALS TO PROVIDER
 # Credentials are stored in terraform.tfvars file.
 # ---------------------------------------------------------------------------------------------------------------------
 
-provider "gsuite" {
-  impersonated_user_email = var.impersonated_user_email
-  credentials             = var.credentials
+terraform {
+  required_providers {
+    googleworkspace = {
+      source  = "hashicorp/googleworkspace"
+      version = "0.7.0"
+    }
+  }
+}
+
+provider "googleworkspace" {
+  customer_id             = var.gworkspace_customer_id
+  impersonated_user_email = var.gworkspace_email
+  credentials             = var.gworkspace_credentials
   oauth_scopes = [
     "https://www.googleapis.com/auth/admin.directory.group",
     "https://www.googleapis.com/auth/apps.groups.settings",
