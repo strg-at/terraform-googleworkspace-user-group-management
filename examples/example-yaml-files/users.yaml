@@ -7,7 +7,7 @@ jane:
   family_name: Doe
   given_name: Jane
   aliases:
-  - doe@example.io
+    - doe@example.io
   include_in_global_address_list: true
   org_unit_path: /
   archived: false

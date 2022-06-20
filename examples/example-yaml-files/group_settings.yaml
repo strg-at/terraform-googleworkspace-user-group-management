@@ -2,6 +2,8 @@
 # GOOGLE GROUP SETTINGS
 # ---------------------------------------------------------------------------------------------------------------------
 
+# to use default setting, set value to null
+
 anyone-mail-allowed:
   allow_external_members: false
   allow_web_posting: true
@@ -23,6 +25,3 @@ anyone-mail-allowed:
   who_can_post_message: ANYONE_CAN_POST
   who_can_view_group: ALL_MEMBERS_CAN_VIEW
   who_can_view_membership: ALL_MEMBERS_CAN_VIEW
-
-# default
-# set values to null
