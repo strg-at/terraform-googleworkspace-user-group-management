@@ -14,11 +14,15 @@ terraform {
 resource "googleworkspace_group_settings" "group_settings" {
   email = var.group.email
 
+  # workaround for https://github.com/hashicorp/terraform-provider-googleworkspace/issues/331
+  # TODO: remove when solved
+  # -----------------------------------------------------------------------------------------
   lifecycle {
     ignore_changes = [
       email
     ]
   }
+  # -----------------------------------------------------------------------------------------
 
   allow_external_members         = var.group_settings[var.group.settings].allow_external_members
   allow_web_posting              = var.group_settings[var.group.settings].allow_web_posting
