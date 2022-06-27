@@ -14,6 +14,12 @@ terraform {
 resource "googleworkspace_group_settings" "group_settings" {
   email = var.group.email
 
+  lifecycle {
+    ignore_changes = [
+      email
+    ]
+  }
+
   allow_external_members         = var.group_settings[var.group.settings].allow_external_members
   allow_web_posting              = var.group_settings[var.group.settings].allow_web_posting
   archive_only                   = var.group_settings[var.group.settings].archive_only
