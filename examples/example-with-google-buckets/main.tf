@@ -56,7 +56,7 @@ data "google_storage_bucket_object_content" "users_external" {
 
 module "user-group-management" {
   source  = "strg-at/user-group-management/googleworkspace"
-  version = "0.1.0"
+  version = "1.0.0"
   providers = {
     googleworkspace = googleworkspace
   }
