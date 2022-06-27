@@ -5,6 +5,7 @@
 one-group:
   email: group@example.io
   name: Example group
+  description: ""
   settings: anyone-mail-allowed
   aliases:
     - one-alternative@example.io
@@ -17,6 +18,7 @@ one-group:
 another-group:
   email: another-group@example.io
   name: Another Example group
+  description: ""
   settings: default
   aliases: []
   groups:

@@ -14,6 +14,6 @@ terraform {
 resource "googleworkspace_group" "group" {
   email       = var.group.email
   name        = var.group.name
-  description = "Managed with Terraform"
+  description = var.group.description #"Managed with Terraform"
   aliases     = var.group.aliases
 }
