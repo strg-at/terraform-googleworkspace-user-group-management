@@ -13,6 +13,11 @@ variable "users" {
   description = "contains objects representing all defined Google Users"
 }
 
+variable "password" {
+  type        = string
+  description = "contains a mandatory password for users"
+}
+
 variable "users_external" {
   type        = map(any)
   default     = {}

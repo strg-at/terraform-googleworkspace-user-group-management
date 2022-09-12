@@ -22,11 +22,13 @@ resource "googleworkspace_user" "user" {
   org_unit_path                  = var.user.org_unit_path
   archived                       = var.user.archived
   suspended                      = var.user.suspended
+  password                       = var.password
 
   lifecycle {
     ignore_changes = [
       recovery_email,
-      recovery_phone
+      recovery_phone,
+      password
     ]
   }
 }

@@ -46,6 +46,7 @@ module "users" {
     googleworkspace = googleworkspace
   }
   user = each.value
+  password = var.password
 }
 
 module "users_external_to_groups" {
