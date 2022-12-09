@@ -59,6 +59,12 @@ variable "users" {
   }))
 }
 
+variable "random_password" {
+  description = "contains a random password required for Users"
+  type        = string
+  default     = null
+}
+
 variable "users_external" {
   description = "contains objects representing all defined external Users"
   type = map(object({

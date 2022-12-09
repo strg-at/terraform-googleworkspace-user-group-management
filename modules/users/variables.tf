@@ -20,3 +20,9 @@ variable "user" {
     roles : optional(list(string)),
   })
 }
+
+variable "random_password" {
+  description = "contains a random password required for Users"
+  type        = string
+  default     = null
+}

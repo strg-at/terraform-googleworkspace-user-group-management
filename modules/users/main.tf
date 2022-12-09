@@ -17,6 +17,8 @@ resource "googleworkspace_user" "user" {
     family_name = var.user.family_name
     given_name  = var.user.given_name
   }
+  password = var.user.password != null ? var.user.password : var.random_password
+
   aliases                        = var.user.aliases
   archived                       = var.user.archived
   include_in_global_address_list = var.user.include_in_global_address_list
@@ -27,6 +29,7 @@ resource "googleworkspace_user" "user" {
 
   lifecycle {
     ignore_changes = [
+      password,
       recovery_email,
       recovery_phone,
     ]

@@ -51,7 +51,8 @@ module "users" {
   providers = {
     googleworkspace = googleworkspace
   }
-  user = each.value
+  user            = each.value
+  random_password = var.random_password
 }
 
 module "users_external_to_groups" {
