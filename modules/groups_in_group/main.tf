@@ -12,7 +12,7 @@ terraform {
 # -----------------------------------------------------------------------------------------------------------------------------
 
 resource "googleworkspace_group_member" "member" {
-  for_each = toset(var.group.groups)
+  for_each = toset(var.group.members)
   group_id = var.group.email
   email    = var.groups[each.value].email
   type     = "GROUP"
