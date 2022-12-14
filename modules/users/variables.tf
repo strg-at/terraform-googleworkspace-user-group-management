@@ -21,8 +21,8 @@ variable "user" {
   })
 }
 
-variable "random_password" {
-  description = "contains a random password required for Users"
+variable "password" {
+  description = "contains a given password required for Users"
   type        = string
   default     = null
 }

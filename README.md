@@ -95,7 +95,7 @@ No resources.
 | <a name="input_group_settings"></a> [group\_settings](#input\_group\_settings) | contains all defined group setting templates for Google Groups | n/a | yes |
 | <a name="input_groups"></a> [groups](#input\_groups) | contains objects representing all defined Google Groups | n/a | yes |
 | <a name="input_users"></a> [users](#input\_users) | contains objects representing all defined Google Users | n/a | yes |
-| <a name="input_random_password"></a> [random\_password](#input\_random\_password) | contains a random password required for Users | `null` | no |
+| <a name="input_password"></a> [password](#input\_password) | contains a given password required for Users | `null` | no |
 | <a name="input_users_external"></a> [users\_external](#input\_users\_external) | contains objects representing all defined external Users | `{}` | no |
 
 ## Outputs
