@@ -1,19 +1,19 @@
 {
-  "enabled": true,
-  "semanticCommits": "enabled",
-  "dependencyDashboard": true,
-  "dependencyDashboardTitle": ":robot: Renovate Dashboard",
-  "suppressNotifications": ["prIgnoreNotification"],
-  "rebaseWhen": "conflicted",
-  "labels": ["dependencies"],
-  "packageRules": [
+  enabled: true,
+  semanticCommits: "enabled",
+  dependencyDashboard: true,
+  dependencyDashboardTitle: ":robot: Renovate Dashboard",
+  suppressNotifications: ["prIgnoreNotification"],
+  rebaseWhen: "conflicted",
+  labels: ["dependencies"],
+  packageRules: [
     {
-      "matchPackagePatterns": ["eslint"],
-      "labels": ["linting"]
+      matchPackagePatterns: ["eslint"],
+      labels: ["linting"],
     },
     {
-      "matchDepTypes": ["optionalDependencies"],
-      "addLabels": ["optional"]
-    }
-  ]
+      matchDepTypes: ["optionalDependencies"],
+      addLabels: ["optional"],
+    },
+  ],
 }

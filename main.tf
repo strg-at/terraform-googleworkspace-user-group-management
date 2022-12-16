@@ -17,9 +17,11 @@ module "groups" {
 }
 
 module "group_settings" {
-  for_each   = var.groups
-  depends_on = [module.groups]
-  source     = "./modules/group_settings"
+  for_each = var.groups
+  depends_on = [
+    module.groups
+  ]
+  source = "./modules/group_settings"
   providers = {
     googleworkspace = googleworkspace
   }
@@ -28,9 +30,11 @@ module "group_settings" {
 }
 
 module "groups_in_group" {
-  for_each   = var.groups
-  depends_on = [module.groups]
-  source     = "./modules/groups_in_group"
+  for_each = var.groups
+  depends_on = [
+    module.groups
+  ]
+  source = "./modules/groups_in_group"
   providers = {
     googleworkspace = googleworkspace
   }
@@ -39,19 +43,24 @@ module "groups_in_group" {
 }
 
 module "users" {
-  for_each   = var.users
-  depends_on = [module.groups]
-  source     = "./modules/users"
+  for_each = var.users
+  depends_on = [
+    module.groups
+  ]
+  source = "./modules/users"
   providers = {
     googleworkspace = googleworkspace
   }
-  user = each.value
+  user     = each.value
+  password = var.password
 }
 
 module "users_external_to_groups" {
-  for_each   = var.users_external
-  depends_on = [module.groups]
-  source     = "./modules/users_external_to_groups"
+  for_each = var.users_external
+  depends_on = [
+    module.groups
+  ]
+  source = "./modules/users_external_to_groups"
   providers = {
     googleworkspace = googleworkspace
   }
@@ -61,9 +70,12 @@ module "users_external_to_groups" {
 }
 
 module "users_to_groups" {
-  for_each   = var.users
-  depends_on = [module.users]
-  source     = "./modules/users_to_groups"
+  for_each = var.users
+  depends_on = [
+    module.groups,
+    module.users,
+  ]
+  source = "./modules/users_to_groups"
   providers = {
     googleworkspace = googleworkspace
   }
