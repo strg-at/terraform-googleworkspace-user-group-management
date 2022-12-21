@@ -27,9 +27,9 @@ This repo has the following folder structure:
 - [modules](modules/): This folder contains a set of modules for maintaining Users and Groups in Google Workspace.
 - [examples](examples/): This folder shows examples on how to use this module with different data sources as well as an example for a data source and authentication with the Google API.
 
-### Google Cloud Service account
+### Authentication
 
-To maintain the Google Workspace ressources a Service account is needed. See [example-provider-authentication-with-tfvars](examples/example-provider-authentication-with-tfvars) on how to provide credentials to Terraform.
+To maintain the Google Workspace ressources a Service account is needed. See [example-provider-authentication](examples/example-provider-authentication) for more information.
 
 ## How do I contribute to this module?
 
