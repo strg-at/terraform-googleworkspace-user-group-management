@@ -6,40 +6,41 @@ This example also provides full impersonation, so the actor will be able to main
 
 For other authentication methods please check [Terraform googleworkspace provider documentation](https://registry.terraform.io/providers/hashicorp/googleworkspace/latest/docs#authorization).
 
-The [main.tf](main.tf) contains the terraform resources for the gcloud part (service account creation and roles). Besides that the configuration of Google Workspace Domain-wide delegation still has to be done, see below.
+The [main.tf](main.tf) contains the terraform resources for the Google Cloud part (service account creation and roles). Besides that the configuration of Google Workspace domain-wide delegation still has to be done, see below.
 
 ## Full impersonation with short-lived credentials
 
-### gcloud: create Service account
+1. Google Cloud: create service account
 
-Go to [IAM service accounts](https://console.developers.google.com/iam-admin/serviceaccounts).
-Create a service account (no optional stuff is needed).
+   - Go to [IAM service accounts](https://console.developers.google.com/iam-admin/serviceaccounts) in Google Cloud.
+   - Create a service account (no optional stuff is needed).
 
-### gcloud: add Roles to Service account
+2. Google Cloud: add roles to service account
 
-Then select the service account and go to `Permissions`, the following roles need to be added to grant full impersonation:
+   - Select the service account.
+   - Go to `Permissions` and grant the following roles:
 
-- the service account itself: `Service Account Token Creator` (selection from the menu is not possible, instead copy/paste the service account email and grant role)
-- the actor who will execute the terraform commands: `Service Account User` and `Service Account Token Creator`
+     - the service account itself: `Service Account Token Creator` (selection from the menu is not possible, instead copy/paste the service account email and grant role)
+     - the actor who will execute the terraform commands: `Service Account User` and `Service Account Token Creator`
 
-Still in the service account menu go to `Details` and copy the unique id.
+   - Go to `Details` and copy the unique id.
 
-### gworkspace: add Service account to domain-wide delegation in Google Workspace
+3. Google Workspace: add service account to domain-wide delegation
 
-Go to [Google Admin console Domain wide delegation](https://admin.google.com/ac/owl/domainwidedelegation).
+   - Go to [domain-wide delegation](https://admin.google.com/ac/owl/domainwidedelegation) in Google Admin console.
 
-`Add new` and paste the service account id copied before (Service account details) and add the oauth scopes. For this module the following oauth scopes are needed:
+   - `Add new` and paste the service account id copied before (service account details) and add the oauth scopes. For this module the following oauth scopes are needed:
 
-```console
-https://www.googleapis.com/auth/admin.directory.group,
-https://www.googleapis.com/auth/admin.directory.user,
-https://www.googleapis.com/auth/admin.directory.userschema,
-https://www.googleapis.com/auth/apps.groups.settings,
-https://www.googleapis.com/auth/iam,
-```
+     ```console
+     https://www.googleapis.com/auth/admin.directory.group,
+     https://www.googleapis.com/auth/admin.directory.user,
+     https://www.googleapis.com/auth/admin.directory.userschema,
+     https://www.googleapis.com/auth/apps.groups.settings,
+     https://www.googleapis.com/auth/iam
+     ```
 
-The exact same scopes need to be provided to the googleworkspace provider, otherwise it will not work!
+     The exact same scopes need to be provided to the googleworkspace provider.
 
-### authenticate with gcloud
+4. Authenticate with Google Cloud
 
-Run `gcloud auth application-default login` to authenticate with GCP.
+   Run `gcloud auth application-default login` to authenticate with GCP.
