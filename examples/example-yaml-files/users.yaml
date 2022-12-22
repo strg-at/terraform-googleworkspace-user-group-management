@@ -7,6 +7,7 @@ jane:
   primary_email: jane@example.io
   family_name: Doe
   given_name: Jane
+  password: "12345"
   aliases:
     - doe@example.io
   include_in_global_address_list: true

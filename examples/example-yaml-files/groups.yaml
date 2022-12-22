@@ -9,7 +9,7 @@ one-group:
   settings: anyone-mail-allowed
   aliases:
     - one-alternative@example.io
-  groups: []
+  members: []
 
 # ---------------------------------------------------------------------------------------------------------------------
 # GOOGLE GROUP WITH ANOTHER GROUP AS MEMBER
@@ -20,5 +20,5 @@ another-group:
   name: Another Example group
   settings: default
   aliases: []
-  groups:
+  members:
     - one-group
