@@ -14,12 +14,15 @@ terraform {
 resource "googleworkspace_group_settings" "group_settings" {
   email = var.group.email
 
-  # workaround for https://github.com/hashicorp/terraform-provider-googleworkspace/issues/331
+  # workaround for
+  # - https://github.com/hashicorp/terraform-provider-googleworkspace/issues/331
+  # - https://github.com/hashicorp/terraform-provider-googleworkspace/issues/398
   # TODO: remove when solved
   # -----------------------------------------------------------------------------------------
   lifecycle {
     ignore_changes = [
-      email
+      email,
+      is_archived,
     ]
   }
   # -----------------------------------------------------------------------------------------
