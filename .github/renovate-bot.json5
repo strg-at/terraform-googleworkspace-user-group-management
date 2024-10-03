@@ -1,0 +1,7 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  platform: "github",
+  username: "strg-public-bot[bot]",
+  gitAuthor: "strg-public-bot <174349635+strg-public-bot[bot]@users.noreply.github.com>",
+  repositories: ["strg-at/terraform-googleworkspace-user-group-management"],
+}
