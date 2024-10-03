@@ -12,11 +12,34 @@
 -->
 
 [![pre-commit][pre-commit-shield]][pre-commit-url]
+[![taskfile][taskfile-shield]][taskfile-url]
 [![Terraform][terraform-shield]][terraform-url]
 
 # Dynamic User- and Group Management for Google Workspace with Terraform
 
 IAC Implementation for User- and Group Management in Google Workspace (formerly GSuite)
+
+<details>
+  <summary style="font-size:1.2em;">Table of Contents</summary>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [How to use this module](#how-to-use-this-module)
+  - [Authentication](#authentication)
+- [How do I contribute to this module?](#how-do-i-contribute-to-this-module)
+- [How is this module versioned?](#how-is-this-module-versioned)
+- [License](#license)
+- [Authors](#authors)
+- [Terraform docs](#terraform-docs)
+  - [Requirements](#requirements)
+  - [Providers](#providers)
+  - [Modules](#modules)
+  - [Resources](#resources)
+  - [Inputs](#inputs)
+  - [Outputs](#outputs)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+</details>
 
 ## How to use this module
 
@@ -60,20 +83,24 @@ This code is released under the MIT License. Please see [LICENSE](LICENSE) for m
 [pre-commit-url]: https://github.com/pre-commit/pre-commit
 [terraform-shield]: https://img.shields.io/badge/terraform-1.x-844fba?style=for-the-badge&logo=terraform
 [terraform-url]: https://www.terraform.io/
+[taskfile-url]: https://taskfile.dev/
+[taskfile-shield]: https://img.shields.io/badge/Taskfile-Enabled-brightgreen?style=for-the-badge&logo=task
+
+## Terraform docs
 
 <!-- prettier-ignore-start -->
 <!-- BEGIN_TF_DOCS -->
-## Requirements
+### Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_googleworkspace"></a> [googleworkspace](#requirement\_googleworkspace) | 0.7.0 |
 
-## Providers
+### Providers
 
 No providers.
 
-## Modules
+### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
@@ -84,21 +111,21 @@ No providers.
 | <a name="module_users_external_to_groups"></a> [users\_external\_to\_groups](#module\_users\_external\_to\_groups) | ./modules/users_external_to_groups | n/a |
 | <a name="module_users_to_groups"></a> [users\_to\_groups](#module\_users\_to\_groups) | ./modules/users_to_groups | n/a |
 
-## Resources
+### Resources
 
 No resources.
 
-## Inputs
+### Inputs
 
-| Name | Description | Default | Required |
-|------|-------------|---------|:--------:|
-| <a name="input_group_settings"></a> [group\_settings](#input\_group\_settings) | contains all defined group setting templates for Google Groups | n/a | yes |
-| <a name="input_groups"></a> [groups](#input\_groups) | contains objects representing all defined Google Groups | n/a | yes |
-| <a name="input_users"></a> [users](#input\_users) | contains objects representing all defined Google Users | n/a | yes |
-| <a name="input_password"></a> [password](#input\_password) | contains a given password required for Users | `null` | no |
-| <a name="input_users_external"></a> [users\_external](#input\_users\_external) | contains objects representing all defined external Users | `{}` | no |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_group_settings"></a> [group\_settings](#input\_group\_settings) | contains all defined group setting templates for Google Groups | <pre>map(object({<br>    allow_external_members : optional(bool),<br>    allow_web_posting : optional(bool),<br>    archive_only : optional(bool),<br>    enable_collaborative_inbox : optional(bool),<br>    include_in_global_address_list : optional(bool),<br>    is_archived : optional(bool),<br>    members_can_post_as_the_group : optional(bool),<br>    message_moderation_level : optional(string),<br>    reply_to : optional(string),<br>    spam_moderation_level : optional(string),<br>    who_can_assist_content : optional(string),<br>    who_can_contact_owner : optional(string),<br>    who_can_discover_group : optional(string),<br>    who_can_join : optional(string),<br>    who_can_leave_group : optional(string),<br>    who_can_moderate_content : optional(string),<br>    who_can_moderate_members : optional(string),<br>    who_can_post_message : optional(string),<br>    who_can_view_group : optional(string),<br>    who_can_view_membership : optional(string),<br>  }))</pre> | n/a | yes |
+| <a name="input_groups"></a> [groups](#input\_groups) | contains objects representing all defined Google Groups | <pre>map(object({<br>    email : string,<br>    name : string,<br>    description : optional(string),<br>    settings : optional(string),<br>    aliases : optional(list(string)),<br>    members : optional(list(string)),<br>  }))</pre> | n/a | yes |
+| <a name="input_users"></a> [users](#input\_users) | contains objects representing all defined Google Users | <pre>map(object({<br>    primary_email : string,<br>    given_name : string,<br>    family_name : string,<br>    password : optional(string),<br>    aliases : optional(list(string)),<br>    archived : optional(bool),<br>    include_in_global_address_list : optional(bool),<br>    ip_allowlist : optional(bool),<br>    is_admin : optional(bool),<br>    org_unit_path : optional(string),<br>    suspended : optional(bool),<br>    roles : optional(list(string)),<br>  }))</pre> | n/a | yes |
+| <a name="input_password"></a> [password](#input\_password) | contains a given password required for Users | `string` | `null` | no |
+| <a name="input_users_external"></a> [users\_external](#input\_users\_external) | contains objects representing all defined external Users | <pre>map(object({<br>    roles : list(string),<br>  }))</pre> | `{}` | no |
 
-## Outputs
+### Outputs
 
 No outputs.
 <!-- END_TF_DOCS -->
