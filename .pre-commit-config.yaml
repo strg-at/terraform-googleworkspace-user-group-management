@@ -5,30 +5,31 @@ default_stages:
   - push
 
 repos:
-  - repo: https://github.com/terraform-docs/terraform-docs
-    rev: v0.16.0
+  - repo: https://github.com/thlorenz/doctoc
+    rev: v2.2.0
     hooks:
-      - id: terraform-docs-go
+      - id: doctoc
         args:
-          - --config
-          - .terraform-docs.yaml
-          - --output-file
-          - README.md
-          - .
+          - --update-only
+          - --maxlevel
+          - "3"
+          - --github
+          - --notitle
 
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.77.0
+    rev: v1.96.1
     hooks:
+      - id: terraform_docs
+        args:
+          - --hook-config=--path-to-file=README.md
+          - --args=--config=.terraform-docs.yaml
       - id: terraform_fmt
       - id: terraform_tflint
         args:
           - --args=--config=__GIT_WORKING_DIR__/.tflint.hcl
-      # - id: terraform_tfsec
-      # files: ^infra/terraform
-      # - id: terraform_validate
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v4.6.0
     hooks:
       - id: check-merge-conflict
       - id: check-added-large-files
@@ -48,41 +49,40 @@ repos:
       - id: trailing-whitespace
         args:
           - --markdown-linebreak-ext=md
+      - id: no-commit-to-branch
+        args: ["--branch", "main"]
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.28.0
+    rev: v1.35.1
     hooks:
       - id: yamllint
         args:
           - --config-file
-          - .yamllint.config.yaml
+          - .yamllint.yaml
 
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.3.1
+    rev: v1.5.5
     hooks:
       - id: remove-crlf
       - id: remove-tabs
 
-  - repo: https://github.com/sirosen/fix-smartquotes
-    rev: 0.2.0
+  - repo: https://github.com/sirosen/texthooks
+    rev: 0.6.7
     hooks:
       - id: fix-smartquotes
+      - id: fix-ligatures
+      - id: forbid-bidi-controls
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.32.2
+    rev: v0.42.0
     hooks:
       - id: markdownlint-fix
         args:
           - --config
           - .markdownlint.yaml
 
-  - repo: https://github.com/k8s-at-home/sops-pre-commit
-    rev: v2.1.1
-    hooks:
-      - id: forbid-secrets
-
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.0.0-alpha.4
+    rev: v3.1.0
     hooks:
       - id: prettier
         args:
@@ -90,3 +90,13 @@ repos:
           - .prettierignore
           - --config
           - .prettierrc.yaml
+
+  - repo: https://github.com/k8s-at-home/sops-pre-commit
+    rev: v2.1.1
+    hooks:
+      - id: forbid-secrets
+
+  - repo: https://github.com/zricethezav/gitleaks
+    rev: v8.19.3
+    hooks:
+      - id: gitleaks

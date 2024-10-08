@@ -1,0 +1,39 @@
+---
+version: "3"
+
+tasks:
+  init:
+    desc: Terraform init
+    dir: "{{.TERRAFORM_DIR}}"
+    cmds:
+      - "terraform init"
+
+  plan:
+    desc: Terraform plan
+    dir: "{{.TERRAFORM_DIR}}"
+    cmds:
+      - "terraform plan"
+
+  apply:
+    desc: Terraform apply
+    dir: "{{.TERRAFORM_DIR}}"
+    cmds:
+      - "terraform apply"
+
+  refresh:
+    desc: Terraform refresh-only
+    dir: "{{.TERRAFORM_DIR}}"
+    cmds:
+      - "terraform apply -refresh-only"
+
+  update:
+    desc: Terraform update
+    dir: "{{.TERRAFORM_DIR}}"
+    cmds:
+      - "terraform get -update"
+
+  upgrade:
+    desc: Terraform upgrade
+    dir: "{{.TERRAFORM_DIR}}"
+    cmds:
+      - "terraform init -upgrade"
