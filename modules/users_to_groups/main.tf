@@ -13,6 +13,10 @@ terraform {
 
 resource "googleworkspace_group_member" "group" {
   for_each = toset(var.user.roles)
-  group_id = var.groups[each.value].email
-  email    = var.user.primary_email
+
+  group_id          = var.groups[each.value.group].email
+  email             = var.user.primary_email
+  delivery_settings = coalesce(each.value.delivery_settings, "ALL_MAIL") # defaults to ALL_MAIL
+  role              = coalesce(each.value.role, "MEMBER")                # defaults to MEMBER
+  type              = coalesce(each.value.type, "USER")                  # defaults to USER
 }

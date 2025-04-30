@@ -17,8 +17,18 @@ variable "user" {
     is_admin : optional(bool),
     org_unit_path : optional(string),
     suspended : optional(bool),
-    roles : optional(list(string)),
+    roles : optional(list(object({
+      group : string,
+      delivery_settings : optional(string),
+      role : optional(string),
+      type : optional(string)
+    }))),
   })
+
+  validation {
+    condition     = alltrue(flatten([for role in var.user.roles : contains(keys(var.groups), role.group)]))
+    error_message = "All groups must be defined in the groups variable."
+  }
 }
 
 variable "groups" {
