@@ -24,11 +24,6 @@ variable "user" {
       type : optional(string)
     }))),
   })
-
-  validation {
-    condition     = alltrue(flatten([for role in var.user.roles : contains(keys(var.groups), role.group)]))
-    error_message = "All groups must be defined in the groups variable."
-  }
 }
 
 variable "groups" {

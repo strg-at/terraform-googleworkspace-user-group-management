@@ -22,7 +22,7 @@ variable "user" {
       delivery_settings : optional(string),
       role : optional(string),
       type : optional(string)
-    })), []),
+    }))),
   })
 }
 
