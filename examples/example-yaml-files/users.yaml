@@ -15,5 +15,8 @@ jane:
   archived: false
   suspended: false
   roles:
-    - one-group
-    - another-group
+    - group: one-group
+      delivery_settings: DAILY
+      role: MANAGER
+      type: USER
+    - group: another-group

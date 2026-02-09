@@ -55,7 +55,12 @@ variable "users" {
     is_admin : optional(bool),
     org_unit_path : optional(string),
     suspended : optional(bool),
-    roles : optional(list(string)),
+    roles : optional(list(object({
+      group : string,
+      delivery_settings : optional(string),
+      role : optional(string),
+      type : optional(string)
+    }))),
   }))
 }
 
@@ -68,7 +73,12 @@ variable "password" {
 variable "users_external" {
   description = "contains objects representing all defined external Users"
   type = map(object({
-    roles : list(string),
+    roles : list(object({
+      group : string,
+      delivery_settings : optional(string),
+      role : optional(string),
+      type : optional(string)
+    })),
   }))
   default = {}
 }

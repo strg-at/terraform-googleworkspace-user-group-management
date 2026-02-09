@@ -18,8 +18,18 @@ variable "groups" {
 variable "user_external" {
   description = "contains an object representing an external User"
   type = object({
-    roles : list(string),
+    roles : list(object({
+      group : string,
+      delivery_settings : optional(string),
+      role : optional(string),
+      type : optional(string)
+    })),
   })
+
+  validation {
+    condition     = alltrue(flatten([for role in var.user_external.roles : contains(keys(var.groups), role.group)]))
+    error_message = "All groups must be defined in the groups variable."
+  }
 }
 
 variable "user_external_email" {
